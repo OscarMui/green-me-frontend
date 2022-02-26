@@ -1,0 +1,101 @@
+extends ../layouts/default
+
+block js
+    script(src="/js/questionnaire.js")
+
+block append variables 
+    - var currentPage = "questionnaire";
+
+mixin yesNo(i)
+    .form-check.form-check-inline(onchange="changeYesNo("+i+")")
+        input.form-check-input.q-radio(type="radio" name="yesNo"+i id="radioYes"+i value="yes")
+        label.form-check-label.q-label(for="radioYes"+i) Yes
+    .form-check.form-check-inline(onchange="changeYesNo("+i+")")
+        input.form-check-input.q-radio(type="radio" name="yesNo"+i id="radioNo"+i value="no")
+        label.form-check-label.q-label(for="radioNo"+i) No
+
+mixin oneToFive(i)
+    <div class="d-inline mx-3"> Not at all </div>
+    .form-check.form-check-inline
+        input.form-check-input.q-radio(type="radio" name="likeliness"+i id="radioNo"+i value=1)
+        label.form-check-label.q-label(for="radioNo"+i) 1
+    .form-check.form-check-inline
+        input.form-check-input.q-radio(type="radio" name="likeliness"+i id="radioNo"+i value=2)
+        label.form-check-label.q-label(for="radioNo"+i) 2
+    .form-check.form-check-inline
+        input.form-check-input.q-radio(type="radio" name="likeliness"+i id="radioNo"+i value=3)
+        label.form-check-label.q-label(for="radioNo"+i) 3
+    .form-check.form-check-inline
+        input.form-check-input.q-radio(type="radio" name="likeliness"+i id="radioNo"+i value=4)
+        label.form-check-label.q-label(for="radioNo"+i) 4
+    .form-check.form-check-inline
+        input.form-check-input.q-radio(type="radio" name="likeliness"+i id="radioNo"+i value=5)
+        label.form-check-label.q-label(for="radioNo"+i) 5
+
+    <div class="d-inline mx-3"> Very Likely </div>
+
+block content
+    .container
+        h1 More about you...
+        p Let us analyse your carbon footprint by filling in a short questionnaire! 
+        
+        if method == "POST"
+            h1 submitted
+            p=res
+            //- if body&&body.hasError
+            //-     h1 Error
+            //-     p.lead=body.errorMsg
+                
+            //- else if !nums || !body
+            //-     h1 Error
+            //-     p.lead An unexpected error has occured.
+            //- else
+            //-     h1 Result
+            //-     p=nums
+
+        else
+            form#questionnaireForm(method='post')
+                .form-group#general
+                
+                br
+                
+                - let i=0;
+                each q in questions
+                    h4=q.name
+                    +yesNo(i)
+                    div(id="subQuestion"+i class="d-none")
+                        br
+                        p="How likely can you do it?"
+                        +oneToFive(i)
+                    br
+                    br
+                    -i++;
+
+
+                //- p Minimum Number: &nbsp; 
+                //-     input#minNum.form-control(type="number" name="minNum" value=0 min=0)
+                //-     span &nbsp;
+                //-     i.fas(data-toggle="modal" data-target="#minModal" class="fa-question-circle")
+                //-     +modalBoxDark("minModal","Minimum Number")
+                //-         p Minimum bound of the random number.
+                //- p Maximum Number: &nbsp; 
+                //-     input#maxNum.form-control(type="number" name="maxNum" value=100 min=0)
+                //-     span &nbsp;
+                //-     i.fas(data-toggle="modal" data-target="#maxModal" class="fa-question-circle")
+                //-     +modalBoxDark("maxModal","Maximum Number")
+                //-         p Maximum bound of the random number.
+                //- p Number of Random Numbers: &nbsp; 
+                //-     select#count.form-control(name="count")
+                //-         -let i=1;
+                //-         while i<=10
+                //-             if i == 1
+                //-                 option(selected='selected')=1
+                //-             else
+                //-                 option=i
+                //-             - i++;
+                //-     span &nbsp;
+                //-     i.fas(data-toggle="modal" data-target="#countModal" class="fa-question-circle")
+                //-     +modalBoxDark("countModal","Number of Random Numbers")
+                //-         p Number of random numbers required.
+                br
+                button#generateButton.btn(type="submit") Generate!

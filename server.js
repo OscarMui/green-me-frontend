@@ -8,7 +8,8 @@ const env = require('dotenv');
 const lessMiddleware = require('less-middleware');
 
 const inputGetView = require("./routes/views/inputGet.js");
-const inputPostView = require("./routes/views/inputPost.js");
+// const inputPostView = require("./routes/views/inputPost.js");
+const questionnaireView = require("./routes/views/questionnaire.js")
 
 //constants
 const app = express();
@@ -26,7 +27,8 @@ app.get('/cards',(req,res)=>{res.render("cards");});
 app.get('/photos',(req,res)=>{res.render("photos");});
 app.get('/input/ajax',(req,res)=>{res.render("inputAjax");});
 app.get('/input/get',inputGetView);
-app.all('/input/post',inputPostView);
+// app.all('/input/post',inputPostView);
+app.all('/questionnaire',questionnaireView);
 
 //app.set, app.use
 app.set("view engine","pug");
