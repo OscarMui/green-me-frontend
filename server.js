@@ -11,7 +11,7 @@ const inputGetView = require("./routes/views/inputGet.js");
 // const inputPostView = require("./routes/views/inputPost.js");
 const questionnaireView = require("./routes/views/questionnaire.js");
 const tasksView = require("./routes/views/tasks.js");
-
+const reportView = require("./routes/views/report.js")
 //constants
 const app = express();
 const port = process.env.PORT || 3000;
@@ -31,6 +31,7 @@ app.get('/input/get',inputGetView);
 // app.all('/input/post',inputPostView);
 app.all('/questionnaire',questionnaireView);
 app.get('/tasks',tasksView);
+app.all('/tasks/:id',reportView);
 
 //app.set, app.use
 app.set("view engine","pug");

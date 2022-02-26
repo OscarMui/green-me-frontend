@@ -1,0 +1,62 @@
+extends ../layouts/default
+
+block js
+    script(src="/js/report.js")
+
+block append variables 
+    - var currentPage = "questionnaire";
+
+mixin yesNo(q,i)
+    .form-check.form-check-inline(onchange="changeYesNo("+i+","+(q.subquestionOption=="yes")+")")
+        input.form-check-input.q-radio(type="radio" name="yesNo"+i id="radioYes"+i value="yes" required)
+        label.form-check-label.q-label(for="radioYes"+i) Yes
+    .form-check.form-check-inline(onchange="changeYesNo("+i+","+(q.subquestionOption=="no")+")")
+        input.form-check-input.q-radio(type="radio" name="yesNo"+i id="radioNo"+i value="no")
+        label.form-check-label.q-label(for="radioNo"+i) No
+
+mixin oneToFive(q,i)
+    <div class="d-inline mx-3"> Not at all </div>
+    .form-check.form-check-inline
+        input.form-check-input.q-radio(type="radio" name="likeliness"+i id="radioLikeliness1"+i value=1)
+        label.form-check-label.q-label(for="radioNo"+i) 1
+    .form-check.form-check-inline
+        input.form-check-input.q-radio(type="radio" name="likeliness"+i id="radioLikeliness2"+i value=2)
+        label.form-check-label.q-label(for="radioNo"+i) 2
+    .form-check.form-check-inline
+        input.form-check-input.q-radio(type="radio" name="likeliness"+i id="radioLikeliness3"+i value=3)
+        label.form-check-label.q-label(for="radioNo"+i) 3
+    .form-check.form-check-inline
+        input.form-check-input.q-radio(type="radio" name="likeliness"+i id="radioLikeliness4"+i value=4)
+        label.form-check-label.q-label(for="radioNo"+i) 4
+    .form-check.form-check-inline
+        input.form-check-input.q-radio(type="radio" name="likeliness"+i id="radioLikeliness5"+i value=5)
+        label.form-check-label.q-label(for="radioNo"+i) 5
+
+    <div class="d-inline mx-3"> Very Likely </div>
+
+block content
+    .container
+        h1 More about you...
+        p Let us analyse your carbon footprint by filling in a short questionnaire! 
+        
+        if method == "POST"
+            h1 submitted
+            p=res
+            //- if body&&body.hasError
+            //-     h1 Error
+            //-     p.lead=body.errorMsg
+                
+            //- else if !nums || !body
+            //-     h1 Error
+            //-     p.lead An unexpected error has occured.
+            //- else
+            //-     h1 Result
+            //-     p=nums
+
+        else
+            form#reportForm(method='post')
+                input(type='hidden', name='completed', value=false)
+                h2 Did you complete the task?
+                //- <h1>404</h1>
+                button.yesButton(type="button" onclick="submitForm(true)") Yes
+                button.noButton(type="button" onclick="submitForm(false)") No
