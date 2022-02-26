@@ -1,7 +1,7 @@
 const {getTasks} = require("../api/get");
 
 exports = module.exports = function (req, res, next) {
-    console.log(req.method);
+    console.log("TASKS",req.method);
     // console.log(req.body);
 
     let isAuthenticated = req.oidc.isAuthenticated();

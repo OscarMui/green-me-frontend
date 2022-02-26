@@ -1,5 +1,5 @@
 exports = module.exports = function (req, res) {
-    console.log(req.method);
+    console.log("INDEX",req.method);
     // console.log(req.body);
 
     let isAuthenticated = req.oidc.isAuthenticated();

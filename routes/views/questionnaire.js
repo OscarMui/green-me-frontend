@@ -1,8 +1,8 @@
 const {getQuestions} = require("../api/get");
-const {submitQuestionnaire} = require("../api/submitQuestionnaire");
+const {submitQuestionnaire} = require("../api/post");
 
-exports = module.exports = function (req, res, next) {
-    console.log(req.method);
+exports = module.exports = function (req, res) {
+    console.log("QUESTIONNAIRE",req.method);
     // console.log(req.body);
 
     let isAuthenticated = req.oidc.isAuthenticated();

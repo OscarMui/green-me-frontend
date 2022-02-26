@@ -1,7 +1,5 @@
-const {submitQuestionnaire} = require("../api/submitQuestionnaire");
-
 exports = module.exports = function (req, res, next) {
-    console.log(req.method);
+    console.log("REPORT",req.method);
     console.log(req.params);
     // console.log(req.body);
 

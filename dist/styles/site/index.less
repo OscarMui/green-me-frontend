@@ -1,65 +1,63 @@
 #home{
-    .my-box{
-        border: 2px solid #AAA;
-        background-color: @bg-color;
-        margin-top: 1rem;
-        .header{ //make it overlap with the border
-            font-family: 'Noto Serif TC', sans-serif;
-            font-weight: 800;
-            position: relative;
-            bottom: 1rem;
-            //background-color: @sharp-color-blue;
-            color: #000;
-            width: fit-content;
-            width: -moz-fit-content;
-            padding: 10px 10px 10px 10px;
-            border-radius: 1rem;
-            border: 2px solid #AAA;
-            height: 53px;
-            a{
-                color: #000;
-            }
-            img{
-                position: relative;
-                bottom: 3px;
-            }
-        }
+    #body{
+        margin-top: 0;
+    }
+    #login-bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        min-height: 700px;
+        object-fit: cover;
+        left: 0;
+        top: 0;
+        z-index: 0;
+    }
+    .wrap {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        min-height: 700px;
+        background: @primary-color-green;
+        background-image: radial-gradient(closest-corner,rgba(0, 28, 85,0) 60%,rgba(0, 28, 85,.5)),linear-gradient(to top left,#1F487E,#00ae5b 100%);
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        display: -ms-flexbox;
+        justify-content: center;
+        align-items: center;
+    }
+    #middleWhite{
         .container{
-            margin: 0 1rem 1rem 1rem;
-            padding-right: 2rem;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
         }
-        a{
-            color: #98CD85;
-        }
-        a.live{
-            color: yellow;;
-        }
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        z-index: 10;
+        background-color: @white-theme-bg-color;
+        width: 500px;
+        height: 400px;
+        color: #000;
+        display: flex;
+        justify-content: center;
         
-        a.read-more{
-            color: #AAA;
-        }
     }
-    
-    .announcementsHeader{
-        background-color: #ff93ac;
+    .yesButton{
+        text-decoration: none;
+        color: #FFF;
+        background-color: @primary-color-green;
+        padding: 18px 55px;
+        display: inline-block;
+        border-radius: 25px;
+        font-size: 16px;
+        letter-spacing: 3.5px;
+        text-transform: uppercase;
     }
-    .discordHeader{
-        background-color: #ffb366;
-    }
-    
-    .announcementsHeaderYellow{
-        background-color: #DAD602;
-    }
-    
-    .blueHeader{
-        background-color: @sharp-color-blue;
-    }
-    
-    .greenHeader{
-        background-color: @sharp-color-green;
-    }
-    
-    .purpleHeader{
-        background-color: #B97AC5;
+    p{
+        color: #555;
     }
 }

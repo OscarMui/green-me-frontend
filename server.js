@@ -12,6 +12,7 @@ const questionnaireView = require("./routes/views/questionnaire.js");
 const indexView = require("./routes/views/index.js");
 const tasksView = require("./routes/views/tasks.js");
 const reportView = require("./routes/views/report.js")
+const callbackView = require("./routes/views/callback.js");
 //constants
 const app = express();
 const port = process.env.PORT || 3000;
@@ -36,12 +37,11 @@ app.use(auth(config));
 //views
 // req.isAuthenticated is provided from the auth router
 app.get('/',indexView);
+app.get('/callback', callbackView);
 app.get('/login', (req, res) => {
     res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
 });
-app.get('/callback', (req, res) => {
-    res.redirect("/tasks");
-});
+
 app.all('/questionnaire',questionnaireView);
 app.get('/tasks',tasksView);
 app.all('/tasks/:id',reportView);
