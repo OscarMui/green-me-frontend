@@ -25,6 +25,7 @@ exports = module.exports = function (req, res, next) {
 
     if(method=="POST"){
         console.log(req.body);
+        
         let answers = new Array();
         let i = 0;
         while(body["yesNo"+i]){
@@ -38,8 +39,13 @@ exports = module.exports = function (req, res, next) {
             answers.push(answer);
             i++;
         }
-        console.log(answers);
-        submitQuestionnaire(answers).then((result)=>{
+
+        let submitData = {
+            userId: "123",
+            results: answers,
+        }
+        console.log(submitData);
+        submitQuestionnaire(submitData).then((result)=>{
             res.render("questionnaire",{method,result});
         });
         
