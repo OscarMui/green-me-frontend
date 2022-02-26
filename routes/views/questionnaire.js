@@ -19,8 +19,8 @@ exports = module.exports = function (req, res, next) {
     if(method=="POST"){
         console.log(req.body);
         let answers = req.body;
-        submitQuestionnaire(answers).then((res)=>{
-            res.render("questionnaire",{res});
+        submitQuestionnaire(answers).then((result)=>{
+            res.render("questionnaire",{method,result});
         });
         
     }else{
