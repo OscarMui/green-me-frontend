@@ -4,7 +4,7 @@ block js
     script(src="/js/report.js")
 
 block append variables 
-    - var currentPage = "questionnaire";
+    - var currentPage = "report";
 
 mixin yesNo(q,i)
     .form-check.form-check-inline(onchange="changeYesNo("+i+","+(q.subquestionOption=="yes")+")")
@@ -36,9 +36,6 @@ mixin oneToFive(q,i)
 
 block content
     .container
-        h1 More about you...
-        p Let us analyse your carbon footprint by filling in a short questionnaire! 
-        
         if method == "POST"
             h1 submitted
             p=res
@@ -58,5 +55,6 @@ block content
                 input(type='hidden', name='completed', value=false)
                 h2 Did you complete the task?
                 //- <h1>404</h1>
-                button.yesButton(type="button" onclick="submitForm(true)") Yes
-                button.noButton(type="button" onclick="submitForm(false)") No
+                .submitButtons
+                    button.yesButton.btn(type="button" onclick="submitForm(true)") Yes
+                    button.noButton.btn(type="button" onclick="submitForm(false)") No
