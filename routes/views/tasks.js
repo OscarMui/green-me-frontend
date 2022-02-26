@@ -14,18 +14,18 @@ exports = module.exports = function (req, res, next) {
             image: "/images/pugjs.jpeg",
             points: 10,
         },
-        {
-            name: "Bag",
-            description: "long long description",
-            image: "/images/pugjs.jpeg",
-            points: 10,
-        },
-        {
-            name: "Vegetarian",
-            description: "long long description",
-            image: "/images/pugjs.jpeg",
-            points: 10,
-        }
+        // {
+        //     name: "Bag",
+        //     description: "long long description",
+        //     image: "/images/pugjs.jpeg",
+        //     points: 10,
+        // },
+        // {
+        //     name: "Vegetarian",
+        //     description: "long long description",
+        //     image: "/images/pugjs.jpeg",
+        //     points: 10,
+        // }
     ]
     if(method=="POST"){
 

@@ -46,7 +46,7 @@ exports = module.exports = function (req, res, next) {
         }
         console.log(submitData);
         submitQuestionnaire(submitData).then((result)=>{
-            res.redirect("/tasks")
+            res.redirect("/tasks");
         });
         
     }else{
