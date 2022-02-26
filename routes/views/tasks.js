@@ -1,4 +1,4 @@
-const {getTasks} = require("../api/getTasks");
+const {getTasks} = require("../api/get");
 
 exports = module.exports = function (req, res, next) {
     console.log(req.method);

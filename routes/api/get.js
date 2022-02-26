@@ -17,3 +17,22 @@ exports.getTasks = async function getTasks(sub){
         }, 1000);
     });
 }
+
+exports.getQuestions = async function getQuestions(sub){
+    return new Promise((resolve)=>{
+        setTimeout(() => {
+            fetch(process.env.ABSOLUTE_PATH+"/questionnaire")
+            .then(result => result.json()) //usually
+            .then((res) => {
+                console.log(res);
+                resolve(res);
+            })
+            .catch((err)=>{
+                console.log("catch from api",err);
+                settings.hasError=true;
+                settings.errorMsg = "Error occured when connecting to www.random.org";
+                resolve("error");
+            });
+        }, 1000);
+    });
+}

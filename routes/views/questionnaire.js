@@ -1,3 +1,4 @@
+const {getQuestions} = require("../api/get");
 const {submitQuestionnaire} = require("../api/submitQuestionnaire");
 
 exports = module.exports = function (req, res, next) {
@@ -14,26 +15,29 @@ exports = module.exports = function (req, res, next) {
         res.redirect("/login");
     }
 
-    const questions = [
-        {
-            name: "Do you bring a bag to the supermarket?",
-            subquestionOption: "no",
-        },
-        {
-            name: "Do you turn on lights in the day?",
-            subquestionOption: "no",
-        },
-        {
-            name: "Do you eat beef?",
-            subquestionOption: "yes",
-        },
-    ]
+    // const questions = [
+    //     {
+    //         name: "Do you bring a bag to the supermarket?",
+    //         subquestionOption: "no",
+    //         subquestion: "How difficult it is?"
+    //     },
+    //     {
+    //         name: "Do you turn on lights in the day?",
+    //         subquestionOption: "no",
+    //         subquestion: "How difficult it is?"
+    //     },
+    //     {
+    //         name: "Do you eat beef?",
+    //         subquestionOption: "yes",
+    //         subquestion: "How ekwjrewjfewf it is?"
+    //     },
+    // ]
 
     if(method=="POST"){
         console.log(req.body);
         
         let answers = new Array();
-        let i = 0;
+        let i = 1;
         while(body["yesNo"+i]){
             let answer = {
                 questionId: i,
@@ -57,7 +61,11 @@ exports = module.exports = function (req, res, next) {
         
     }else{
         //GET
-        res.render("questionnaire", {questions,isAuthenticated,user});
+        getQuestions().then((questions)=>{
+            res.render("questionnaire", {questions,isAuthenticated,user});
+        })
+
+        
     }
 };
 

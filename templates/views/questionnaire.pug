@@ -7,10 +7,10 @@ block append variables
     - var currentPage = "questionnaire";
 
 mixin yesNo(q,i)
-    .form-check.form-check-inline(onchange="changeYesNo("+i+","+(q.subquestionOption=="yes")+")")
+    .form-check.form-check-inline(onchange="changeYesNo("+i+","+(q.subquestion_option=="yes")+")")
         input.form-check-input.q-radio(type="radio" name="yesNo"+i id="radioYes"+i value="yes" required)
         label.form-check-label.q-label(for="radioYes"+i) Yes
-    .form-check.form-check-inline(onchange="changeYesNo("+i+","+(q.subquestionOption=="no")+")")
+    .form-check.form-check-inline(onchange="changeYesNo("+i+","+(q.subquestion_option=="no")+")")
         input.form-check-input.q-radio(type="radio" name="yesNo"+i id="radioNo"+i value="no")
         label.form-check-label.q-label(for="radioNo"+i) No
 
@@ -59,13 +59,13 @@ block content
                 
                 br
                 
-                - let i=0;
+                - let i=1;
                 each q in questions
-                    h4=q.name
+                    h4=q.qn1
                     +yesNo(q,i)
                     div(id="subQuestion"+i class="d-none")
                         br
-                        p="How likely can you do it?"
+                        p=q.qn2
                         +oneToFive(q,i)
                     br
                     br

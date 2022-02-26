@@ -12,9 +12,6 @@ exports = module.exports = function (req, res) {
 
     }else{
         //GET
-        // getTasks().then((tasks)=>{
-        //     res.render("tasks",{tasks});
-        // });
         console.log(user);
         res.render("index",{isAuthenticated,user});
         
