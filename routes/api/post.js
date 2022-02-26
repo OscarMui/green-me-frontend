@@ -19,10 +19,36 @@ exports.submitQuestionnaire = async function findProfile(answers){
             //body: "answer="+answer.toString()+"&__RequestVerificationToken="+__RequestVerificationToken
         })
         .then((result) => { 
-            return result.text();
+            return result.json();
         }).then((response)=>{
             console.log(response);
             resolve(response);
         });
+        
+    });
+}
+
+exports.userCallback = async function userCallback(user){
+    return new Promise((resolve)=>{
+        setTimeout(() => {
+            fetch(process.env.ABSOLUTE_PATH+"/usercallback", {
+                method: "post",
+                headers: {
+                    'Accept': 'application/text',
+                    'Content-Type': 'application/json'
+                    //text/plain
+                },
+    
+                //make sure to serialize your JSON body
+                body: JSON.stringify(user)
+                //body: "answer="+answer.toString()+"&__RequestVerificationToken="+__RequestVerificationToken
+            })
+            .then((result) => { 
+                return result.json();
+            }).then((response)=>{
+                console.log(response);
+                resolve(response);
+            });
+        }, 1000);
     });
 }

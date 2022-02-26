@@ -28,8 +28,9 @@ const config = {
     baseURL: process.env.EXPRESS_PATH,
     clientID: process.env.AUTH0_CLIENT_ID,
     issuerBaseURL: process.env.AUTH0_DOMAIN
-  };
+};
 
+app.all('/callback', callbackView);
 // auth router attaches /login, /logout, and /callback routes to the baseURL
 app.use(auth(config));
 
@@ -37,10 +38,10 @@ app.use(auth(config));
 //views
 // req.isAuthenticated is provided from the auth router
 app.get('/',indexView);
-app.get('/callback', callbackView);
 app.get('/login', (req, res) => {
     res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
 });
+
 
 app.all('/questionnaire',questionnaireView);
 app.get('/tasks',tasksView);
