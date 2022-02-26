@@ -10,16 +10,16 @@ exports = module.exports = function (req, res, next) {
     const tasks = [
         {
             name: "Recycle",
+            description: "long long description, long long description, long long description,long long description long long description, long long descriptionlong long descriptionlong long descriptionlong long descriptionlong long descriptionlong long descriptionlong long descriptionlong long description",
+            image: "/images/pugjs.jpeg",
+            points: 10,
+        },
+        {
+            name: "Bag",
             description: "long long description",
             image: "/images/pugjs.jpeg",
             points: 10,
         },
-        // {
-        //     name: "Bag",
-        //     description: "long long description",
-        //     image: "/images/pugjs.jpeg",
-        //     points: 10,
-        // },
         // {
         //     name: "Vegetarian",
         //     description: "long long description",
