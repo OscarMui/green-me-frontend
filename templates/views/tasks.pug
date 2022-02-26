@@ -19,6 +19,17 @@ block content
 							.card-text
 								p=task.description
 
-								a(href="/") Click to report progress
+								.info-group
+									i.fas.fa-angle-double-down.fa-lg
+									img(src="/images/carbonFootprint.png" width="20")
+									p 7800000
+
+								.info-group
+									i.fas.fa-angle-double-down.fa-lg
+									i.fas.fa-trash.fa-lg
+									p 7800000
+
+								br
+								a(href="/tasks/"+task.id) Click to report progress
 			
 							

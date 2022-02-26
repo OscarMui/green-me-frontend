@@ -13,12 +13,14 @@ exports = module.exports = function (req, res, next) {
             description: "long long description, long long description, long long description,long long description long long description, long long descriptionlong long descriptionlong long descriptionlong long descriptionlong long descriptionlong long descriptionlong long descriptionlong long description",
             image: "/images/pugjs.jpeg",
             points: 10,
+            id: 1
         },
         {
             name: "Bag",
             description: "long long description",
             image: "/images/pugjs.jpeg",
             points: 10,
+            id: 2
         },
         // {
         //     name: "Vegetarian",
