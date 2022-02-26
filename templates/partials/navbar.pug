@@ -8,3 +8,9 @@ nav#myNav.navbar.navbar-default.navbar-expand-lg.navbar-dark: .container.my-1
             li.nav-item: a.nav-link(href="/" class={'active': currentPage === 'home'}) Home 
             li.nav-item: a.nav-link(href="/questionnaire" class={'active': currentPage === 'questionnaire'}) Questionnaire 
             li.nav-item: a.nav-link(href="/tasks" class={'active': currentPage === 'tasks'}) Tasks
+        .navbar-text
+            if !isAuthenticated
+                a.nav-link.active(href="/login") Login
+            else
+                span.name-span.d-inline-block=user.name
+                .navbar-nav.d-inline-block: a.nav-link(href="/logout") (Logout)

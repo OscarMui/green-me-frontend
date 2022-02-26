@@ -2,8 +2,8 @@ var fetch = require('cross-fetch');
 
 exports.submitQuestionnaire = async function findProfile(answers){
     return new Promise((resolve)=>{
-        console.log(process.env.ABSOLUTE_PATH+"/api/questionnaire/submit");
-        fetch(process.env.ABSOLUTE_PATH+"/api/questionnaire/submit", {
+        console.log(process.env.ABSOLUTE_PATH+"/questionnaire/submit");
+        fetch(process.env.ABSOLUTE_PATH+"/questionnaire/submit", {
             method: "post",
             headers: {
                 'Accept': 'application/text',

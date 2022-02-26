@@ -6,8 +6,10 @@ require('dotenv').config();
 const express = require('express');
 const env = require('dotenv');
 const lessMiddleware = require('less-middleware');
+const { auth } = require('express-openid-connect');
 
 const questionnaireView = require("./routes/views/questionnaire.js");
+const indexView = require("./routes/views/index.js");
 const tasksView = require("./routes/views/tasks.js");
 const reportView = require("./routes/views/report.js")
 //constants
@@ -18,9 +20,28 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
+const config = {
+    authRequired: false,
+    auth0Logout: true,
+    secret: process.env.AUTH0_CLIENT_SECRET,
+    baseURL: process.env.EXPRESS_PATH,
+    clientID: process.env.AUTH0_CLIENT_ID,
+    issuerBaseURL: process.env.AUTH0_DOMAIN
+  };
+
+// auth router attaches /login, /logout, and /callback routes to the baseURL
+app.use(auth(config));
+
 //ROUTING
 //views
-app.get('/',(req,res)=>{res.render("index");});
+// req.isAuthenticated is provided from the auth router
+app.get('/',indexView);
+app.get('/login', (req, res) => {
+    res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
+});
+app.get('/callback', (req, res) => {
+    res.redirect("/tasks");
+});
 app.all('/questionnaire',questionnaireView);
 app.get('/tasks',tasksView);
 app.all('/tasks/:id',reportView);

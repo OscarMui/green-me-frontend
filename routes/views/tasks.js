@@ -4,8 +4,15 @@ exports = module.exports = function (req, res, next) {
     console.log(req.method);
     // console.log(req.body);
 
+    let isAuthenticated = req.oidc.isAuthenticated();
+    let user = req.oidc.user;
+
     let method = req.method;
     let body = req.body;
+
+    if(!isAuthenticated){
+        res.redirect("/login");
+    }
 
     const tasks = [
         {
@@ -33,11 +40,11 @@ exports = module.exports = function (req, res, next) {
 
     }else{
         //GET
-        // getTasks().then((tasks)=>{
+        // getTasks(user.sub).then((tasks)=>{
         //     res.render("tasks",{tasks});
         // });
 
-        res.render("tasks",{tasks});
+        res.render("tasks",{tasks,isAuthenticated,user});
         
     }
 };

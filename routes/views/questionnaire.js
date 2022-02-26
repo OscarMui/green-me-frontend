@@ -4,9 +4,15 @@ exports = module.exports = function (req, res, next) {
     console.log(req.method);
     // console.log(req.body);
 
+    let isAuthenticated = req.oidc.isAuthenticated();
+    let user = req.oidc.user;
+
     let method = req.method;
     let body = req.body;
     
+    if(!isAuthenticated){
+        res.redirect("/login");
+    }
 
     const questions = [
         {
@@ -41,7 +47,7 @@ exports = module.exports = function (req, res, next) {
         }
 
         let submitData = {
-            userId: "123",
+            userId: user.sub,
             results: answers,
         }
         console.log(submitData);
@@ -51,7 +57,7 @@ exports = module.exports = function (req, res, next) {
         
     }else{
         //GET
-        res.render("questionnaire", {questions});
+        res.render("questionnaire", {questions,isAuthenticated,user});
     }
 };
 
