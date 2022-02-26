@@ -1,4 +1,4 @@
-const {callNumApi, dataValidation} = require("../api/callNumApi");
+const {callNumApi, dataValidation} = require("../api/getTasks");
 
 exports = module.exports = function (req, res) {
     console.log(req.query);

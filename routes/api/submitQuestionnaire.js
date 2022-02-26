@@ -3,7 +3,7 @@ var fetch = require('cross-fetch');
 exports.submitQuestionnaire = async function findProfile(answers){
     return new Promise((resolve)=>{
         console.log(process.env.ABSOLUTE_PATH+"/api/questionnaire/submit");
-        fetch(process.env.ABSOLUTE_PATH+"/api/questionnaire/submit", { //TODO: I think I cannot use relative path here https://nodejs.dev/learn/nodejs-the-difference-between-development-and-production
+        fetch(process.env.ABSOLUTE_PATH+"/api/questionnaire/submit", {
             method: "post",
             headers: {
                 'Accept': 'application/text',

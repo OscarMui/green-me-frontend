@@ -1,0 +1,24 @@
+extends ../layouts/default
+
+block js
+
+block append variables 
+	- var currentPage = "tasks";
+
+block content
+
+	.container
+		h2.mt-5 Task for this week
+		.row.cards-row
+			each task in tasks 
+				.col-12.col-md-6.col-xl-4.my-4.cards-col
+					.card
+						.card-header: h3=task.name
+						img.card-image-top(src=task.image).w-100
+						.card-body
+							.card-text
+								p=task.description
+
+								a(href="/") Click to report progress
+			
+							

@@ -1,13 +1,12 @@
 var fetch = require('cross-fetch');
 
-exports.callNumApi = async function findProfile(settings){
+exports.getTasks = async function getTasks(settings){
     return new Promise((resolve)=>{
         setTimeout(() => {
-            fetch("https://www.random.org/integers/?min="+settings.minNum+"&max="+settings.maxNum+"&num="+settings.count+"&base=10&col=1&format=plain&rnd=new")
-            // .then(result => result.json()) //usually
-            .then(result => result.text())
+            fetch(process.env.ABSOLUTE_PATH+"/api/user/"+123+"/tasks/")
+            .then(result => result.json()) //usually
             .then((res) => {
-                resolve(res)
+                resolve(res.tasks)
             })
             .catch((err)=>{
                 console.log("catch from www.random.org",err);
