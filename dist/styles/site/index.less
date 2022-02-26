@@ -1,0 +1,65 @@
+#home{
+    .my-box{
+        border: 2px solid #AAA;
+        background-color: @bg-color;
+        margin-top: 1rem;
+        .header{ //make it overlap with the border
+            font-family: 'Noto Serif TC', sans-serif;
+            font-weight: 800;
+            position: relative;
+            bottom: 1rem;
+            //background-color: @sharp-color-blue;
+            color: #000;
+            width: fit-content;
+            width: -moz-fit-content;
+            padding: 10px 10px 10px 10px;
+            border-radius: 1rem;
+            border: 2px solid #AAA;
+            height: 53px;
+            a{
+                color: #000;
+            }
+            img{
+                position: relative;
+                bottom: 3px;
+            }
+        }
+        .container{
+            margin: 0 1rem 1rem 1rem;
+            padding-right: 2rem;
+        }
+        a{
+            color: #98CD85;
+        }
+        a.live{
+            color: yellow;;
+        }
+        
+        a.read-more{
+            color: #AAA;
+        }
+    }
+    
+    .announcementsHeader{
+        background-color: #ff93ac;
+    }
+    .discordHeader{
+        background-color: #ffb366;
+    }
+    
+    .announcementsHeaderYellow{
+        background-color: #DAD602;
+    }
+    
+    .blueHeader{
+        background-color: @sharp-color-blue;
+    }
+    
+    .greenHeader{
+        background-color: @sharp-color-green;
+    }
+    
+    .purpleHeader{
+        background-color: #B97AC5;
+    }
+}

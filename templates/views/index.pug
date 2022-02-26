@@ -1,0 +1,43 @@
+extends ../layouts/default
+
+block js
+
+block append variables 
+	- var currentPage = "home";
+	- var themeColor = "dark";
+
+block content
+	.container
+		h1 Welcome to Green Me!
+		br
+		p  OxfordHack 2022
+		
+		
+		br
+		.my-box
+			.container
+				h4.blueHeader.header <img src="images/news.png" width="30" height="30"/> TEMPLATE INFO
+				p See README of both the generator and this generated project.
+
+		br
+		.my-box
+			.container
+				h4.discordHeader.header: a(href="https://discord.gg") <img src="images/discord.png" width="30" height="30"/> DISCORD
+				p Join my Discord server to gain access to various perks
+				ul
+					li Access to beta content
+					li Regular giveaways !
+					li Join and chat about web dev! 
+				a(href="https://discord.gg/") Invite link
+
+		br
+		.my-box
+			.container
+				h4.greenHeader.header: <img src="images/news.png" width="30" height="30"/> LONG TEXT
+				p It was the best compliment that he'd ever received although the person who gave it likely never knew. It had been an off-hand observation on his ability to hold a conversation and actually add pertinent information to it on practically any topic. Although he hadn't consciously strived to be able to do so, he'd started to voraciously read the news when he couldn't keep up on topics his friends discussed because their conversations went above his head. The fact that someone had noticed enough to compliment him that he could talk intelligently about many topics meant that he had succeeded in his quest to be better informed		
+				#collapse1.collapse
+					p I inadvertently went to See's Candy last week (I was in the mall looking for phone repair), and as it turns out, See's Candy now charges a dollar -- a full dollar -- for even the simplest of their wee confection offerings. I bought two chocolate lollipops and two chocolate-caramel-almond things. The total cost was four-something. I mean, the candies were tasty and all, but let's be real: A Snickers bar is fifty cents. After this dollar-per-candy revelation, I may not find myself wandering dreamily back into a See's Candy any time soon.
+					p She didn't understand how changed worked. When she looked at today compared to yesterday, there was nothing that she could see that was different. Yet, when she looked at today compared to last year, she couldn't see how anything was ever the same.
+				a.read-more(data-toggle="collapse" href="#collapse1" aria-expanded="false" aria-controls="collapse1")
+					span.collapsed Show more
+					span.expanded Show less

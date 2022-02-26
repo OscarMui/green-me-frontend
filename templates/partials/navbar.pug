@@ -1,0 +1,15 @@
+nav#myNav.navbar.navbar-default.navbar-expand-lg.navbar-dark: .container.my-1
+    a.navbar-brand(href='/'): img(src="/images/pi-transparent.png" width="30" height="30" alt="")
+    a.navbar-brand(href='/') Green Me
+    button.navbar-toggler(type='button', data-toggle='collapse', data-target='#orderNav')
+        span.navbar-toggler-icon.navbar-light
+    .collapse.navbar-collapse#orderNav
+        ul.nav.navbar-nav.mr-auto
+            li.nav-item: a.nav-link(href="/" class={'active': currentPage === 'home'}) Home
+            li.nav-item: a.nav-link(href="/timeline"  class={'active': currentPage === 'timeline'}) Timeline
+            li.nav-item: a.nav-link(href="/cards"  class={'active': currentPage === 'cards'}) Cards
+            li.nav-item: a.nav-link(href="/photos"  class={'active': currentPage === 'photos'}) Photos 
+            li.nav-item: a.nav-link(href="/input/ajax"  class={'active': currentPage === 'inputAjax'}) AJAX
+            li.nav-item: a.nav-link(href="/input/get"  class={'active': currentPage === 'inputGet'}) GET
+            li.nav-item: a.nav-link(href="/input/post"  class={'active': currentPage === 'inputPost'}) POST
+            li.nav-item: a.nav-link(href="/contact"  class={'active': currentPage === 'contact'}) Contact

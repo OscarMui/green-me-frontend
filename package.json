@@ -1,0 +1,33 @@
+{
+  "name": "green-me-frontend",
+  "version": "3.0.0",
+  "description": "OxfordHack 2022",
+  "main": "server.js",
+  "dependencies": {
+    "@babel/core": "^7.14.2",
+    "@babel/preset-env": "^7.14.2",
+    "async": "2.1.4",
+    "cross-fetch": "^3.1.4",
+    "dotenv": "4.0.0",
+    "eslint": "3.15.0",
+    "eslint-config-keystone": "3.0.0",
+    "eslint-plugin-react": "^5.1.1",
+    "express": "^4.17.1",
+    "less-loader": "^6.2.0",
+    "less-middleware": "^3.1.0",
+    "less-plugin-autoprefix": "^2.0.0",
+    "lodash": "^4.13.1",
+    "pug": "^3.0.0"
+  },
+  "devDependencies": {
+    "fs": "^0.0.1-security"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "genForgePretty": "node -e 'require(\"./gen/src/genForge.js\").genForgePretty()'",
+    "genForge": "node -e 'require(\"./gen/src/genForge.js\").genForge()'",
+    "genAuctions": "node -e 'require(\"./gen/src/genForge.js\").genAuctions()'"
+  },
+  "license": "ISC"
+}

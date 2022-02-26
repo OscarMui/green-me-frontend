@@ -1,0 +1,59 @@
+extends ../layouts/default
+
+block js
+
+block append variables 
+	- var currentPage = "cards";
+	- var themeColor = "dark";
+
+block content
+
+	.container
+		h2.mt-5 Bunch of cards
+		.row.cards-row
+			.col-12.col-md-6.col-xl-4.my-4.cards-col
+				.favourite-red-card.card
+					.card-header: h3 First Category
+					img.card-image-top(src="images/pugjs.jpeg").w-100
+					.card-body
+						ul.card-text
+							li 
+								span First Item &nbsp;
+								i.fas.fa-lg.fa-info-circle(data-toggle="modal" data-target="#firstItemModal")
+								+modalBoxDark("firstItemModal","First Item","")
+									p My pincher collar is snapped on. Then comes the electric zapper collar. Finally, my purple at-home collar is taken off and I know I’m going for a walk to the dog park. I’m so excited to see my friends. I hope Spike or Thunder are there already. They're the most fun to chase and tumble with. My human is pretty strict with me. I’m only allowed on the grass and not on the sidewalks. I think she’s afraid I’m going to jump on the other humans. I don’t understand why everyone else gets to jump on the benches and run wild on the sidewalks. They don’t listen to their humans. I know I could ignore mine but if I do she may zap me and it’s just not worth it. She probably wouldn’t let me back at the dog park if I didn’t listen to her. I just love the dog park.
+							li 
+								span Second Item &nbsp;
+								i.fas.fa-lg.fa-info-circle(data-toggle="modal" data-target="#secondItemModal")
+								+modalBoxDark("secondItemModal","Second Item","")
+									p Mary Lou wore the tiara with pride. There was something that made doing anything she didn't really want to do a bit easier when she wore it. She really didn't care what those staring through the window were thinking as she vacuumed her apartment.
+									
+							li
+								span Third Item &nbsp;
+								i.fas.fa-lg.fa-info-circle(data-toggle="modal" data-target="#thirdItemModal")
+								+modalBoxDark("thirdItemModal","Third Item","")
+									p The computer wouldn't start. She banged on the side and tried again. Nothing. She lifted it up and dropped it to the table. Still nothing. She banged her closed fist against the top. It was at this moment she saw the irony of trying to fix the machine with violence.
+					
+			.col-12.col-md-6.col-xl-4.my-4.cards-col
+				.favourite-red-card.card
+					.card-header: h3 Second Category
+					img.card-image-top(src="images/pugjs.jpeg").w-100
+					.card-body
+						ul.card-text
+							li 1
+							ul
+								li 1.1
+								li 1.2
+							li 2
+
+			.col-12.col-md-6.col-xl-4.my-4.cards-col
+				.favourite-green-card.card
+					.card-header: h3 Third Category
+					img.card-image-top(src="images/pugjs.jpeg").w-100
+					.card-body
+						ul.card-text
+							li 1
+							ul
+								li 1.1
+								li 1.2
+							li 2
