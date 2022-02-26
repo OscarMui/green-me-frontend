@@ -29,8 +29,8 @@ app.get('/photos',(req,res)=>{res.render("photos");});
 app.get('/input/ajax',(req,res)=>{res.render("inputAjax");});
 app.get('/input/get',inputGetView);
 // app.all('/input/post',inputPostView);
-app.get('/questionnaire',questionnaireView);
-app.all('/tasks',tasksView);
+app.all('/questionnaire',questionnaireView);
+app.get('/tasks',tasksView);
 
 //app.set, app.use
 app.set("view engine","pug");
