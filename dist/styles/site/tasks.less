@@ -6,7 +6,7 @@
     
 }
 
-#tasks, #report {
+#report, #tasks {
     .cards-row{
         margin-top: -15px;
         .cards-col{
@@ -14,59 +14,59 @@
             align-items: stretch;
             width: 100%;
         }
-        .card-body{
-            flex-grow: 1;
+    }
+    .card-body{
+        flex-grow: 1;
+    }
+    .card{
+        width:100%;
+    }
+    .card-iamge-top{
+        flex-grow: 0;
+    }
+    .card{
+        border: 2px solid #AAA;
+        // background-color: #FFF;
+        margin-top: 2rem;
+    }
+    .card-header:first-child{
+        border-radius: 0;
+    }
+    .card-header h3{
+        color: #FFF;
+        text-align: center;
+    }
+    .card-header{
+        padding: 0;
+        background-color: #555;
+    }
+    .progress{
+        border-radius: 0;
+    }
+    .progress-bar{
+        background-color: @primary-color-green;
+    }
+    .progress-bar-blue{
+        background-color: #007bff;
+    }
+    .taskDesc{
+        min-height: 100px;
+    }
+    .card-image-top{
+        object-fit: fill;
+        height: 300px;
+        object-fit: cover;
+    }
+    .info-group{
+        margin-top: 2rem;
+        *{
+            display: inline-block;
         }
-        .card{
-            width:100%;
+        img, i{
+            margin-right: 20px;
         }
-        .card-iamge-top{
-            flex-grow: 0;
-        }
-        .card{
-            border: 2px solid #AAA;
-            // background-color: #FFF;
-            margin-top: 2rem;
-        }
-        .card-header:first-child{
-            border-radius: 0;
-        }
-        .card-header h3{
-            color: #FFF;
-            text-align: center;
-        }
-        .card-header{
-            padding: 0;
-            background-color: #555;
-        }
-        .progress{
-            border-radius: 0;
-        }
-        .progress-bar{
-            background-color: @primary-color-green;
-        }
-        .progress-bar-blue{
-            background-color: #007bff;
-        }
-        .taskDesc{
-            min-height: 100px;
-        }
-        .card-image-top{
-            object-fit: fill;
-            height: 300px;
-            object-fit: cover;
-        }
-        .info-group{
-            margin-top: 2rem;
-            *{
-                display: inline-block;
-            }
-            img, i{
-                margin-right: 20px;
-            }
-            i{
-                color: @primary-color-green;
-            }
+        i{
+            color: @primary-color-green;
         }
     }
 }

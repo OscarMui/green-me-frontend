@@ -35,7 +35,7 @@ block content
                     .card
                         .card-header
                             .progress
-                                .progress-bar(role="progressbar" style="width:"+task.completed/task.max aria-valuenow=task.completed aria-valuemin="0" aria-valuemax=task.max)
+                                .progress-bar(role="progressbar" style="width:"+(task.completed/task.max*100)+"%"  aria-valuenow=task.completed aria-valuemin="0" aria-valuemax=task.max)
                                 .progress-bar.progress-bar-blue(role="progressbar" style="width:"+(1/task.max*100)+"%" aria-valuenow=1 aria-valuemin="0" aria-valuemax=task.max)
                         img.card-image-top(src="/images/tasks/img"+task.templateId+".jpeg").w-100
                         .card-body
@@ -45,9 +45,9 @@ block content
                                 .info-group
                                     i.fas.fa-angle-double-down.fa-lg
                                     img(src="/images/carbonFootprint.png" width="20")
-                                    p=task.carbonSavings
+                                    h4=task.carbonSavings
 
                                 .info-group
                                     i.fas.fa-angle-double-down.fa-lg
                                     i.fas.fa-trash.fa-lg
-                                    p=task.wasteSavings
+                                    h4=task.wasteSavings

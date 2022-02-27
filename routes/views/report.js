@@ -38,6 +38,7 @@ exports = module.exports = function (req, res, next) {
     }else{
         //GET
         getTask(req.params.taskId).then((task)=>{
+            console.log(task);
             res.render("report", {task,isAuthenticated,user,internalUser});
         });
         
