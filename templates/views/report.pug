@@ -9,18 +9,18 @@ block append variables
 block content
     .container
         if method == "POST"
-            h1 submitted
-            p=res
-            //- if body&&body.hasError
-            //-     h1 Error
-            //-     p.lead=body.errorMsg
-                
-            //- else if !nums || !body
-            //-     h1 Error
-            //-     p.lead An unexpected error has occured.
-            //- else
-            //-     h1 Result
-            //-     p=nums
+            #middleWhite
+                .container
+                    br
+                    div.text-center
+                        img(src="/images/star.png" width="300")
+                        br
+                        br
+                        h2 Congratulations! You earned points!
+                    div
+                        a.yesButton.btn(type="button" href="/login") Login / Sign up
+                        br
+                    br
 
         else
             .row
@@ -45,9 +45,13 @@ block content
                                 .info-group
                                     i.fas.fa-angle-double-down.fa-lg
                                     img(src="/images/carbonFootprint.png" width="20")
-                                    h4=task.carbonSavings
+                                    h4=task.carbonSavings.toFixed(2) + " kg"
 
                                 .info-group
                                     i.fas.fa-angle-double-down.fa-lg
                                     i.fas.fa-trash.fa-lg
-                                    h4=task.wasteSavings
+                                    h4=task.wasteSavings.toFixed(2) + " kg"
+
+                                .info-group
+                                    img(src="/images/star.png" width="20")
+                                    h4="+" + task.points

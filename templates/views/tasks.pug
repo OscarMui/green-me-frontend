@@ -31,6 +31,10 @@ block content
 									i.fas.fa-trash.fa-lg
 									h4=task.wasteSavings.toFixed(2) + " kg"
 
+								.info-group
+									img(src="/images/star.png" width="20")
+									h4="+" + task.points
+
 								br
 								a(href="/tasks/"+task.id) Click to report progress
 			
