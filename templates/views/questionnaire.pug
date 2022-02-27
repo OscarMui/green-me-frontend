@@ -7,37 +7,39 @@ block append variables
     - var currentPage = "questionnaire";
 
 mixin yesNo(q,i)
-    .form-check.form-check-inline(onchange="changeYesNo("+i+","+(q.subquestion_option=="yes")+")")
-        input.form-check-input.q-radio(type="radio" name="yesNo"+i id="radioYes"+i value="yes" required)
-        label.form-check-label.q-label(for="radioYes"+i) Yes
-    .form-check.form-check-inline(onchange="changeYesNo("+i+","+(q.subquestion_option=="no")+")")
-        input.form-check-input.q-radio(type="radio" name="yesNo"+i id="radioNo"+i value="no")
-        label.form-check-label.q-label(for="radioNo"+i) No
+    div.centerRadio
+        .form-check.form-check-inline(onchange="changeYesNo("+i+","+(q.subquestion_option=="yes")+")")
+            input.form-check-input.q-radio(type="radio" name="yesNo"+i id="radioYes"+i value="yes" required)
+            label.form-check-label.q-label(for="radioYes"+i) Yes
+        .form-check.form-check-inline(onchange="changeYesNo("+i+","+(q.subquestion_option=="no")+")")
+            input.form-check-input.q-radio(type="radio" name="yesNo"+i id="radioNo"+i value="no")
+            label.form-check-label.q-label(for="radioNo"+i) No
 
 mixin oneToFive(q,i)
-    <div class="d-inline mx-3"> Very easy </div>
-    .form-check.form-check-inline
-        input.form-check-input.q-radio(type="radio" name="likeliness"+i id="radioLikeliness1"+i value=1)
-        label.form-check-label.q-label(for="radioNo"+i) 1
-    .form-check.form-check-inline
-        input.form-check-input.q-radio(type="radio" name="likeliness"+i id="radioLikeliness2"+i value=2)
-        label.form-check-label.q-label(for="radioNo"+i) 2
-    .form-check.form-check-inline
-        input.form-check-input.q-radio(type="radio" name="likeliness"+i id="radioLikeliness3"+i value=3)
-        label.form-check-label.q-label(for="radioNo"+i) 3
-    .form-check.form-check-inline
-        input.form-check-input.q-radio(type="radio" name="likeliness"+i id="radioLikeliness4"+i value=4)
-        label.form-check-label.q-label(for="radioNo"+i) 4
-    .form-check.form-check-inline
-        input.form-check-input.q-radio(type="radio" name="likeliness"+i id="radioLikeliness5"+i value=5)
-        label.form-check-label.q-label(for="radioNo"+i) 5
+    div.centerRadio
+        <div class="d-inline mx-3"> Very easy </div>
+        .form-check.form-check-inline
+            input.form-check-input.q-radio(type="radio" name="likeliness"+i id="radioLikeliness1"+i value=1)
+            label.form-check-label.q-label(for="radioNo"+i) 1
+        .form-check.form-check-inline
+            input.form-check-input.q-radio(type="radio" name="likeliness"+i id="radioLikeliness2"+i value=2)
+            label.form-check-label.q-label(for="radioNo"+i) 2
+        .form-check.form-check-inline
+            input.form-check-input.q-radio(type="radio" name="likeliness"+i id="radioLikeliness3"+i value=3)
+            label.form-check-label.q-label(for="radioNo"+i) 3
+        .form-check.form-check-inline
+            input.form-check-input.q-radio(type="radio" name="likeliness"+i id="radioLikeliness4"+i value=4)
+            label.form-check-label.q-label(for="radioNo"+i) 4
+        .form-check.form-check-inline
+            input.form-check-input.q-radio(type="radio" name="likeliness"+i id="radioLikeliness5"+i value=5)
+            label.form-check-label.q-label(for="radioNo"+i) 5
 
-    <div class="d-inline mx-3"> Impossible </div>
+        <div class="d-inline mx-3"> Impossible </div>
 
 block content
     .container
-        h1 More about you...
-        p Let us analyse your carbon footprint by filling in a short questionnaire! 
+        h1.text-center More about you...
+        p.text-center Let us analyse your carbon footprint by filling in a short questionnaire! 
         
         if method == "POST"
             h1 submitted
@@ -61,11 +63,11 @@ block content
                 
                 - let i=1;
                 each q in questions
-                    h4=q.qn1
+                    h4.text-center=q.qn1
                     +yesNo(q,i)
                     div(id="subQuestion"+i class="d-none")
                         br
-                        p=q.qn2
+                        p.text-center=q.qn2
                         +oneToFive(q,i)
                     br
                     br
@@ -98,4 +100,4 @@ block content
                 //-     +modalBoxDark("countModal","Number of Random Numbers")
                 //-         p Number of random numbers required.
                 br
-                button#generateButton.btn(type="submit") Submit
+                div.text-center: button#generateButton.btn(type="submit") Submit
