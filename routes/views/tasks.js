@@ -14,7 +14,7 @@ exports = module.exports = function (req, res, next) {
     }
 
     if(method=="POST"){
-
+        
     }else{
         //GET
         getTasks(req.internalUser.id).then((tasks)=>{

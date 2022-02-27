@@ -26,6 +26,28 @@ exports.submitQuestionnaire = async function findProfile(answers){
     });
 }
 
+exports.taskCompletion = async function taskCompletion(taskId,answers){
+    return new Promise((resolve)=>{
+        console.log(process.env.ABSOLUTE_PATH+"/task/"+taskId);
+        fetch(process.env.ABSOLUTE_PATH+"/task/"+taskId, {
+            method: "post",
+            headers: {
+                'Accept': 'application/text',
+                'Content-Type': 'application/json'
+                //text/plain
+            },
+
+            //make sure to serialize your JSON body
+            body: JSON.stringify(answers)
+            //body: "answer="+answer.toString()+"&__RequestVerificationToken="+__RequestVerificationToken
+        })
+        .then((result) => { 
+            resolve("OK");
+        });
+        
+    });
+}
+
 exports.userCallback = async function userCallback(user){
     return new Promise((resolve)=>{
         setTimeout(() => {
