@@ -12,6 +12,7 @@ exports.getTasks = async function getTasks(id){
                     })[0];
                     return {
                         id: task.id,
+                        templateId: task.template_id,
                         completed: task.num_completions,
                         max: template.max_completions,
                         points: template.user_points,

@@ -20,9 +20,9 @@ exports = module.exports = function (req, res) {
         // console.log(result.status);
         let internalUser = result.user_object;
 
-        // if(result.status=="existing"){ //TODO:
-        //     res.redirect("/tasks");
-        // }else{
+        if(result.questionnaire_status=="done"){ 
+            res.redirect("/tasks");
+        }else{
             //new users stay here
             if(method=="POST"){
                 console.log(req.body);
@@ -58,7 +58,7 @@ exports = module.exports = function (req, res) {
         
                 
             }
-        // }
+        }
         
     })
 

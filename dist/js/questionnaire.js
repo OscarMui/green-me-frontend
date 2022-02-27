@@ -6,6 +6,6 @@ function changeYesNo(i,showSubquestion){
         $("#radioLikeliness1"+i).prop('required', 'true');
     }else{
         $("#subQuestion"+i).addClass("d-none");
-        $("#radioLikeliness1"+i).prop('required', undefined);
+        $("#radioLikeliness1"+i).prop('required', "");
     }
 }

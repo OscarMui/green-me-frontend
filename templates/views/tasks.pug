@@ -13,11 +13,13 @@ block content
 			each task in tasks 
 				.col-12.col-md-6.col-xl-4.my-4.cards-col
 					.card
-						.card-header: h3=task.id
-						img.card-image-top(src="/images/pugjs.jpeg").w-100
+						.card-header
+							.progress
+								.progress-bar(role="progressbar" style="width:"+task.completed/task.max aria-valuenow=task.completed aria-valuemin="0" aria-valuemax=task.max)
+						img.card-image-top(src="/images/tasks/img"+task.templateId+".jpeg").w-100
 						.card-body
 							.card-text
-								p=task.description
+								h4.taskDesc=task.description
 
 								.info-group
 									i.fas.fa-angle-double-down.fa-lg
