@@ -3,7 +3,9 @@ nav#myNav.navbar.navbar-default.navbar-expand-sm.navbar-dark: .container.my-1
     a.navbar-brand(href='/') Green Me
     if isAuthenticated
         ul.nav.navbar-nav.mr-auto
-            li.nav-item: a.nav-link.active="Score: "+internalUser.points
+            li.nav-item.score-group
+                img.d-inline-block(src="/images/star.png" width="25px")
+                h4.d-inline-block: a.nav-link.active=internalUser.points
     button.navbar-toggler(type='button', data-toggle='collapse', data-target='#orderNav')
         span.navbar-toggler-icon.navbar-light
     .collapse.navbar-collapse#orderNav
