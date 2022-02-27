@@ -24,14 +24,14 @@ block content
 
         else
             .row
-                form.col-12.col-lg-6#reportForm(method='post')
+                form.col-12.col-lg-6.col-xl-8#reportForm(method='post')
                     input(type='hidden', name='completed', value=false)
                     h2 Did you complete the task?
                     //- <h1>404</h1>
                     .submitButtons
                         button.yesButton.btn(type="button" onclick="submitForm(true)") Yes
                         button.noButton.btn(type="button" onclick="submitForm(false)") No
-                .col-12.col-lg-6
+                .col-12.col-lg-6.col-xl-4
                     .card
                         .card-header
                             .progress
