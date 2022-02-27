@@ -1,13 +1,11 @@
+const {getTask} = require("../api/get");
+
 exports = module.exports = function (req, res, next) {
     console.log("REPORT",req.method);
     console.log(req.params);
     // console.log(req.body);
 
-    let isAuthenticated = req.oidc.isAuthenticated();
-    let user = req.oidc.user;
-    
-    let method = req.method;
-    let body = req.body;
+    let {isAuthenticated,internalUser, user, method, body} = req;
 
     if(!isAuthenticated){
         res.redirect("/login");
@@ -45,7 +43,10 @@ exports = module.exports = function (req, res, next) {
         
     }else{
         //GET
-        res.render("report", {task,isAuthenticated,user,internalUser});
+        getTask(req.params.taskId).then((task)=>{
+            res.render("report", {task,isAuthenticated,user,internalUser});
+        });
+        
     }
 };
 

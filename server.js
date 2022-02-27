@@ -47,7 +47,7 @@ app.get('/login', (req, res) => {
 
 app.all('/questionnaire',questionnaireView);
 app.get('/tasks',checkUser,tasksView);
-app.all('/tasks/:id',checkUser,reportView);
+app.all('/tasks/:taskId',checkUser,reportView);
 
 //app.set, app.use
 app.set("view engine","pug");

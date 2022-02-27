@@ -32,6 +32,36 @@ exports.getTasks = async function getTasks(id){
     });
 }
 
+exports.getTask = async function getTask(taskId){
+    return new Promise((resolve)=>{
+        setTimeout(() => {
+            fetch(process.env.ABSOLUTE_PATH+"/task/"+taskId)
+            .then(result => result.json()) //usually
+            .then(({task,templates}) => {
+                let template =  templates.filter((template)=>{
+                    return task.template_id==template.id
+                })[0];
+                resolve({
+                    id: task.id,
+                    templateId: task.template_id,
+                    completed: task.num_completions,
+                    max: template.max_completions,
+                    points: template.user_points,
+                    description: template.desc,
+                    wasteSavings: template.waste_savings,
+                    carbonSavings: template.carbon_savings,
+                });
+            })
+            .catch((err)=>{
+                console.log("catch from api",err);
+                settings.hasError=true;
+                settings.errorMsg = "Error occured when connecting to www.random.org";
+                resolve("error");
+            });
+        }, 1000);
+    });
+}
+
 exports.getQuestions = async function getQuestions(sub){
     return new Promise((resolve)=>{
         setTimeout(() => {
