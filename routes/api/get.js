@@ -24,8 +24,6 @@ exports.getTasks = async function getTasks(id){
             })
             .catch((err)=>{
                 console.log("catch from api",err);
-                settings.hasError=true;
-                settings.errorMsg = "Error occured when connecting to www.random.org";
                 resolve("error");
             });
         }, 1000);
@@ -54,8 +52,6 @@ exports.getTask = async function getTask(taskId){
             })
             .catch((err)=>{
                 console.log("catch from api",err);
-                settings.hasError=true;
-                settings.errorMsg = "Error occured when connecting to www.random.org";
                 resolve("error");
             });
         }, 1000);
@@ -73,8 +69,6 @@ exports.getQuestions = async function getQuestions(sub){
             })
             .catch((err)=>{
                 console.log("catch from api",err);
-                settings.hasError=true;
-                settings.errorMsg = "Error occured when connecting to www.random.org";
                 resolve("error");
             });
         }, 1000);
