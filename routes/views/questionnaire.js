@@ -18,9 +18,11 @@ exports = module.exports = function (req, res) {
     userCallback(user).then((result)=>{
         // console.log(result);
         // console.log(result.status);
-        if(result.status=="existing"){
-            res.redirect("/tasks");
-        }else{
+        let internalUser = result.user_object;
+
+        // if(result.status=="existing"){ //TODO:
+        //     res.redirect("/tasks");
+        // }else{
             //new users stay here
             if(method=="POST"){
                 console.log(req.body);
@@ -40,7 +42,7 @@ exports = module.exports = function (req, res) {
                 }
         
                 let submitData = {
-                    userId: user.sub,
+                    userId: internalUser.id,
                     results: answers,
                 }
                 console.log(submitData);
@@ -56,7 +58,7 @@ exports = module.exports = function (req, res) {
         
                 
             }
-        }
+        // }
         
     })
 

@@ -1,4 +1,4 @@
-const {userCallback} = require("../api/get");
+// const {userCallback} = require("./get");
 
 exports = module.exports = function (req, res) {
     console.log("CALLBACK",req.method);

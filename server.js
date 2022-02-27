@@ -8,11 +8,12 @@ const env = require('dotenv');
 const lessMiddleware = require('less-middleware');
 const { auth } = require('express-openid-connect');
 
+const checkUser = require("./routes/api/checkUser.js");
 const questionnaireView = require("./routes/views/questionnaire.js");
 const indexView = require("./routes/views/index.js");
 const tasksView = require("./routes/views/tasks.js");
 const reportView = require("./routes/views/report.js")
-const callbackView = require("./routes/views/callback.js");
+const callbackView = require("./routes/api/callback.js");
 //constants
 const app = express();
 const port = process.env.PORT || 3000;
@@ -30,9 +31,10 @@ const config = {
     issuerBaseURL: process.env.AUTH0_DOMAIN
 };
 
-app.all('/callback', callbackView);
 // auth router attaches /login, /logout, and /callback routes to the baseURL
 app.use(auth(config));
+
+// app.all('/callback', callbackView);
 
 //ROUTING
 //views
@@ -44,8 +46,8 @@ app.get('/login', (req, res) => {
 
 
 app.all('/questionnaire',questionnaireView);
-app.get('/tasks',tasksView);
-app.all('/tasks/:id',reportView);
+app.get('/tasks',checkUser,tasksView);
+app.all('/tasks/:id',checkUser,reportView);
 
 //app.set, app.use
 app.set("view engine","pug");

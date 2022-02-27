@@ -4,9 +4,11 @@ exports = module.exports = function (req, res, next) {
     console.log("TASKS",req.method);
     // console.log(req.body);
 
-    let isAuthenticated = req.oidc.isAuthenticated();
-    let user = req.oidc.user;
-
+    let isAuthenticated = req.isAuthenticated;
+    let user = req.user;
+    let internalUser = req.internalUser;
+    console.log(user);
+    console.log(req.internalUser);
     let method = req.method;
     let body = req.body;
 
@@ -14,37 +16,16 @@ exports = module.exports = function (req, res, next) {
         res.redirect("/login");
     }
 
-    const tasks = [
-        {
-            name: "Recycle",
-            description: "long long description, long long description, long long description,long long description long long description, long long descriptionlong long descriptionlong long descriptionlong long descriptionlong long descriptionlong long descriptionlong long descriptionlong long description",
-            image: "/images/pugjs.jpeg",
-            points: 10,
-            id: 1
-        },
-        {
-            name: "Bag",
-            description: "long long description",
-            image: "/images/pugjs.jpeg",
-            points: 10,
-            id: 2
-        },
-        // {
-        //     name: "Vegetarian",
-        //     description: "long long description",
-        //     image: "/images/pugjs.jpeg",
-        //     points: 10,
-        // }
-    ]
     if(method=="POST"){
 
     }else{
         //GET
-        // getTasks(user.sub).then((tasks)=>{
-        //     res.render("tasks",{tasks});
-        // });
+        getTasks(req.internalUser.id).then((tasks)=>{
+            console.log(tasks);
+            res.render("tasks",{tasks,isAuthenticated,user});
+        });
 
-        res.render("tasks",{tasks,isAuthenticated,user});
+        // res.render("tasks",{tasks,isAuthenticated,user});
         
     }
 };

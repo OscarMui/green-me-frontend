@@ -12,16 +12,14 @@ exports.submitQuestionnaire = async function findProfile(answers){
             },
 
             //make sure to serialize your JSON body
-            body: JSON.stringify({
-                answers: answers,
-                success: true,
-            })
+            body: JSON.stringify(answers)
             //body: "answer="+answer.toString()+"&__RequestVerificationToken="+__RequestVerificationToken
         })
         .then((result) => { 
+            // console.log("SUBMIT QUESTION",result);
             return result.json();
         }).then((response)=>{
-            console.log(response);
+            // console.log("SUBMIT QUESTION",response);
             resolve(response);
         });
         

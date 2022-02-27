@@ -13,8 +13,8 @@ block content
 			each task in tasks 
 				.col-12.col-md-6.col-xl-4.my-4.cards-col
 					.card
-						.card-header: h3=task.name
-						img.card-image-top(src=task.image).w-100
+						.card-header: h3=task.id
+						img.card-image-top(src="/images/pugjs.jpeg").w-100
 						.card-body
 							.card-text
 								p=task.description
@@ -22,12 +22,12 @@ block content
 								.info-group
 									i.fas.fa-angle-double-down.fa-lg
 									img(src="/images/carbonFootprint.png" width="20")
-									p 7800000
+									p=task.carbonSavings
 
 								.info-group
 									i.fas.fa-angle-double-down.fa-lg
 									i.fas.fa-trash.fa-lg
-									p 7800000
+									p=task.wasteSavings
 
 								br
 								a(href="/tasks/"+task.id) Click to report progress
