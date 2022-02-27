@@ -22,7 +22,7 @@ exports = module.exports = function (req, res, next) {
         //GET
         getTasks(req.internalUser.id).then((tasks)=>{
             console.log(tasks);
-            res.render("tasks",{tasks,isAuthenticated,user});
+            res.render("tasks",{tasks,isAuthenticated,user,internalUser});
         });
 
         // res.render("tasks",{tasks,isAuthenticated,user});

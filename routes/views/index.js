@@ -8,13 +8,12 @@ exports = module.exports = function (req, res) {
     let method = req.method;
     let body = req.body;
 
-    if(method=="POST"){
-
-    }else{
-        //GET
-        console.log(user);
+    //GET
+    console.log(user);
+    if(!isAuthenticated){
         res.render("index",{isAuthenticated,user});
-        
+    }else{
+        res.redirect("/questionnaire");
     }
 };
 

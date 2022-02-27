@@ -53,7 +53,7 @@ exports = module.exports = function (req, res) {
             }else{
                 //GET
                 getQuestions().then((questions)=>{
-                    res.render("questionnaire", {questions,isAuthenticated,user});
+                    res.render("questionnaire", {questions,isAuthenticated,user,internalUser});
                 })
         
                 

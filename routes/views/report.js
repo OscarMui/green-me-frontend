@@ -45,7 +45,7 @@ exports = module.exports = function (req, res, next) {
         
     }else{
         //GET
-        res.render("report", {task,isAuthenticated,user});
+        res.render("report", {task,isAuthenticated,user,internalUser});
     }
 };
 
