@@ -24,12 +24,12 @@ block content
 								.info-group
 									i.fas.fa-angle-double-down.fa-lg
 									img(src="/images/carbonFootprint.png" width="20")
-									h4=task.carbonSavings
+									h4=task.carbonSavings.toFixed(2) + " kg"
 
 								.info-group
 									i.fas.fa-angle-double-down.fa-lg
 									i.fas.fa-trash.fa-lg
-									h4=task.wasteSavings
+									h4=task.wasteSavings.toFixed(2) + " kg"
 
 								br
 								a(href="/tasks/"+task.id) Click to report progress
