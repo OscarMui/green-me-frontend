@@ -15,7 +15,7 @@ mixin yesNo(q,i)
         label.form-check-label.q-label(for="radioNo"+i) No
 
 mixin oneToFive(q,i)
-    <div class="d-inline mx-3"> Not at all </div>
+    <div class="d-inline mx-3"> Very easy </div>
     .form-check.form-check-inline
         input.form-check-input.q-radio(type="radio" name="likeliness"+i id="radioLikeliness1"+i value=1)
         label.form-check-label.q-label(for="radioNo"+i) 1
@@ -32,7 +32,7 @@ mixin oneToFive(q,i)
         input.form-check-input.q-radio(type="radio" name="likeliness"+i id="radioLikeliness5"+i value=5)
         label.form-check-label.q-label(for="radioNo"+i) 5
 
-    <div class="d-inline mx-3"> Very Likely </div>
+    <div class="d-inline mx-3"> Impossible </div>
 
 block content
     .container
