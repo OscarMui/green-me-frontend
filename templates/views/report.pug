@@ -7,22 +7,25 @@ block append variables
     - var currentPage = "report";
 
 block content
-    .container
-        if method == "POST"
+
+    if method == "POST"
+        .wrap
+            img#login-bg(src="/images/login-bg.jpeg")
             #middleWhite
                 .container
                     br
                     div.text-center
-                        img(src="/images/star.png" width="300")
+                        img(src="/images/star.png" width="200")
                         br
                         br
-                        h2 Congratulations! You earned points!
+                        p.text-center Congratulations! You are saving the planet!
                     div
-                        a.yesButton.btn(type="button" href="/login") Login / Sign up
+                        a.yesButton.btn(type="button" href="/tasks") Back to dashboard
                         br
                     br
 
-        else
+    else
+        .container
             .row
                 form.col-12.col-lg-6.col-xl-8#reportForm(method='post')
                     input(type='hidden', name='completed', value=false)

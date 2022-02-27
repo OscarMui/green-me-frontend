@@ -30,7 +30,12 @@ exports = module.exports = function (req, res, next) {
                     update: req.body.completed,
                 }
         }).then((response)=>{
-            res.redirect("/tasks"); 
+            if(req.body.completed=="yes"){
+                res.render("report",{isAuthenticated,user,internalUser,method}); 
+            }else{
+                res.redirect("/tasks"); 
+            }
+            
         });
 
         
@@ -39,7 +44,7 @@ exports = module.exports = function (req, res, next) {
         //GET
         getTask(req.params.taskId).then((task)=>{
             console.log(task);
-            res.render("report", {task,isAuthenticated,user,internalUser});
+            res.render("report", {task,isAuthenticated,user,internalUser,method});
         });
         
     }
