@@ -19,6 +19,8 @@ exports = module.exports = function (req, res, next) {
         req.user = user;
         req.isAuthenticated = isAuthenticated;
         next();
-    })
+    }).catch((err)=>{
+        res.redirect("/500");
+    });
 };
 

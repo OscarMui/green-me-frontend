@@ -36,6 +36,8 @@ exports = module.exports = function (req, res, next) {
                 res.redirect("/tasks"); 
             }
             
+        }).catch((err)=>{
+            res.redirect("/500");
         });
 
         
@@ -45,6 +47,8 @@ exports = module.exports = function (req, res, next) {
         getTask(req.params.taskId).then((task)=>{
             console.log(task);
             res.render("report", {task,isAuthenticated,user,internalUser,method});
+        }).catch((err)=>{
+            res.redirect("/500");
         });
         
     }

@@ -1,7 +1,7 @@
 var fetch = require('cross-fetch');
 
 exports.submitQuestionnaire = async function findProfile(answers){
-    return new Promise((resolve)=>{
+    return new Promise((resolve,reject)=>{
         console.log(process.env.ABSOLUTE_PATH+"/questionnaire");
         fetch(process.env.ABSOLUTE_PATH+"/questionnaire", {
             method: "post",
@@ -21,13 +21,16 @@ exports.submitQuestionnaire = async function findProfile(answers){
         }).then((response)=>{
             // console.log("SUBMIT QUESTION",response);
             resolve(response);
+        }).catch((err)=>{
+            console.log("catch from api",err);
+            resolve("error");
         });
         
     });
 }
 
 exports.taskCompletion = async function taskCompletion(taskId,answers){
-    return new Promise((resolve)=>{
+    return new Promise((resolve,reject)=>{
         console.log(process.env.ABSOLUTE_PATH+"/task/"+taskId);
         fetch(process.env.ABSOLUTE_PATH+"/task/"+taskId, {
             method: "post",
@@ -43,13 +46,16 @@ exports.taskCompletion = async function taskCompletion(taskId,answers){
         })
         .then((result) => { 
             resolve("OK");
+        }).catch((err)=>{
+            console.log("catch from api",err);
+            reject("error");
         });
         
     });
 }
 
 exports.userCallback = async function userCallback(user){
-    return new Promise((resolve)=>{
+    return new Promise((resolve,reject)=>{
         setTimeout(() => {
             fetch(process.env.ABSOLUTE_PATH+"/usercallback", {
                 method: "post",
@@ -68,6 +74,9 @@ exports.userCallback = async function userCallback(user){
             }).then((response)=>{
                 console.log(response);
                 resolve(response);
+            }).catch((err)=>{
+                console.log("catch from api",err);
+                reject("error");
             });
         }, 1000);
     });

@@ -1,7 +1,7 @@
 var fetch = require('cross-fetch');
 
 exports.getTasks = async function getTasks(id){
-    return new Promise((resolve)=>{
+    return new Promise((resolve,reject)=>{
         setTimeout(() => {
             fetch(process.env.ABSOLUTE_PATH+"/user/"+id+"/incompletetasks")
             .then(result => result.json()) //usually
@@ -24,14 +24,14 @@ exports.getTasks = async function getTasks(id){
             })
             .catch((err)=>{
                 console.log("catch from api",err);
-                resolve("error");
+                reject("error");
             });
         }, 1000);
     });
 }
 
 exports.getTask = async function getTask(taskId){
-    return new Promise((resolve)=>{
+    return new Promise((resolve,reject)=>{
         setTimeout(() => {
             fetch(process.env.ABSOLUTE_PATH+"/task/"+taskId)
             .then(result => result.json()) //usually
@@ -52,14 +52,14 @@ exports.getTask = async function getTask(taskId){
             })
             .catch((err)=>{
                 console.log("catch from api",err);
-                resolve("error");
+                reject("error");
             });
         }, 1000);
     });
 }
 
 exports.getQuestions = async function getQuestions(sub){
-    return new Promise((resolve)=>{
+    return new Promise((resolve,reject)=>{
         setTimeout(() => {
             fetch(process.env.ABSOLUTE_PATH+"/questionnaire")
             .then(result => result.json()) //usually
@@ -69,7 +69,7 @@ exports.getQuestions = async function getQuestions(sub){
             })
             .catch((err)=>{
                 console.log("catch from api",err);
-                resolve("error");
+                reject("error");
             });
         }, 1000);
     });

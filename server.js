@@ -13,7 +13,6 @@ const questionnaireView = require("./routes/views/questionnaire.js");
 const indexView = require("./routes/views/index.js");
 const tasksView = require("./routes/views/tasks.js");
 const reportView = require("./routes/views/report.js")
-// const callbackView = require("./routes/api/callback.js");
 //constants
 const app = express();
 const port = process.env.PORT || 3000;
@@ -34,8 +33,6 @@ const config = {
 // auth router attaches /login, /logout, and /callback routes to the baseURL
 app.use(auth(config));
 
-// app.all('/callback', callbackView);
-
 //ROUTING
 //views
 // req.isAuthenticated is provided from the auth router
@@ -48,6 +45,7 @@ app.get('/login', (req, res) => {
 app.all('/questionnaire',questionnaireView);
 app.get('/tasks',checkUser,tasksView);
 app.all('/tasks/:taskId',checkUser,reportView);
+app.get("/500",(req,res)=>{res.render("errors/500");});
 
 //app.set, app.use
 app.set("view engine","pug");

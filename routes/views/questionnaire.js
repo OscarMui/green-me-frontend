@@ -48,19 +48,25 @@ exports = module.exports = function (req, res) {
                 console.log(submitData);
                 submitQuestionnaire(submitData).then((result)=>{
                     res.redirect("/tasks");
-                });
+                }).catch((err)=>{
+                    res.redirect("/500");
+                });;
                 
             }else{
                 //GET
                 getQuestions().then((questions)=>{
                     res.render("questionnaire", {questions,isAuthenticated,user,internalUser});
-                })
+                }).catch((err)=>{
+                    res.redirect("/500");
+                });
         
                 
             }
         }
         
-    })
+    }).catch((err)=>{
+        res.redirect("/500");
+    });
 
     // const questions = [
     //     {
